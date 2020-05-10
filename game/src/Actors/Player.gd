@@ -96,6 +96,9 @@ func _physics_process(_delta: float) -> void:
 		_velocity, snap, FLOOR_NORMAL
 	)
 
+	if global_position.y >= 100:
+		die()
+
 
 func get_direction() -> Vector2:
 	return Vector2(

@@ -46,7 +46,7 @@ func get_camera_focus() -> int:
 			return Player.Movement.Horizontal
 		State.BlueUp, State.BlueDown:
 			return Player.Movement.Vertical
-	return Player.Movement.None
+	return Player.Movement.Both
 
 onready var btn1_vertical = $button1/vertical
 onready var btn1_horizontal = $button1/horizontal
@@ -96,11 +96,11 @@ func render_state():
 			btn2_vertical.visible = true
 			btn2_vertical.flip_v = true
 		State.BlueVYellowHV:
-			btn1_horizontal.visible = true
-			btn1_horizontal.modulate = Color.blue
+			btn1_horizontal.visible = false
 			btn1_horizontal.flip_h = false
-			btn1_vertical.visible = false
+			btn1_vertical.visible = true
 			btn1_vertical.flip_v = false
+			btn1_vertical.modulate = Color.yellow
 
 			btn2_horizontal.visible = true
 			btn2_horizontal.flip_h = false
@@ -150,6 +150,16 @@ var players := {}
 
 func _ready():
 	set_type(type)
+	PlayerData.connect("died", self, "_died")
+	PlayerData.connect("pause", self, "_pause")
+
+
+func _pause(value: bool):
+	visible = not value
+
+
+func _died():
+	visible = false
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -242,3 +252,13 @@ func can_drop(index: int) -> bool:
 			return Input.is_action_pressed("button2")
 
 	return false
+
+
+func _replay_pressed():
+	PlayerData.score = 0
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+
+
+func _pause_pressed():
+	PlayerData.emit_signal("pause", true)

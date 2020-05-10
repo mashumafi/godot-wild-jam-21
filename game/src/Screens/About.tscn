@@ -68,9 +68,15 @@ margin_right = 684.0
 margin_bottom = 300.0
 texture = ExtResource( 6 )
 
-[node name="BackButton" parent="VBoxContainer" instance=ExtResource( 5 )]
+[node name="NothingButton" type="Button" parent="VBoxContainer"]
 margin_top = 516.0
 margin_right = 700.0
-margin_bottom = 571.0
+margin_bottom = 559.0
+text = "Do Nothing"
+
+[node name="BackButton" parent="VBoxContainer" instance=ExtResource( 5 )]
+margin_top = 567.0
+margin_right = 700.0
+margin_bottom = 610.0
 text = "Back"
 next_scene_path = "res://src/Screens/MainScreen.tscn"

@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://src/UserInterface/UserInterface.gd" type="Script" id=2]
 [ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/UserInterface/RetryButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UserInterface/SceneChangeButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=6]
 
 [node name="UserInterface" type="Control"]
 pause_mode = 2
@@ -26,6 +24,9 @@ margin_right = -50.0
 margin_bottom = 150.0
 text = "Score: %s"
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PauseOverlay" type="ColorRect" parent="."]
 visible = false
@@ -49,20 +50,21 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -135.0
 margin_top = -135.0
-margin_right = 135.0
-margin_bottom = 135.0
+margin_right = 139.0
+margin_bottom = -41.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="RetryButton2" parent="PauseOverlay/PauseMenu" instance=ExtResource( 4 )]
-margin_bottom = 84.0
+[node name="RetryResumeButton" type="Button" parent="PauseOverlay/PauseMenu"]
+margin_right = 274.0
+margin_bottom = 43.0
+text = "Resume"
 
 [node name="MainScreenButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 5 )]
-margin_top = 92.0
+margin_top = 51.0
 margin_right = 274.0
-margin_bottom = 176.0
+margin_bottom = 94.0
 text = "Back to Main Screen"
 next_scene_path = "res://src/Screens/MainScreen.tscn"
-
-[node name="QuitButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 6 )]
-margin_top = 184.0
-margin_right = 274.0
-margin_bottom = 270.0
+[connection signal="pressed" from="PauseOverlay/PauseMenu/RetryResumeButton" to="." method="_resumeretry_pressed"]

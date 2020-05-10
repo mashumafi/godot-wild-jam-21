@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/Background3Yellow.png" type="Texture" id=1]
+[ext_resource path="res://assets/background.png" type="Texture" id=2]
+[ext_resource path="res://assets/Background2Yellow.png" type="Texture" id=3]
+[ext_resource path="res://assets/Background3Blue.png" type="Texture" id=4]
+[ext_resource path="res://assets/Background2blue.png" type="Texture" id=5]
+
+[node name="Background" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.25, 0.25 )
+motion_mirroring = Vector2( 1920, 1080 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="YellowFar" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.5, 0 )
+motion_mirroring = Vector2( 1920, 1080 )
+
+[node name="Sprite" type="Sprite" parent="YellowFar"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="BlueFar" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 0.5 )
+motion_mirroring = Vector2( 1920, 1080 )
+
+[node name="Sprite" type="Sprite" parent="BlueFar"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="YellowNear" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.75, 0 )
+motion_mirroring = Vector2( 1920, 1080 )
+
+[node name="Sprite" type="Sprite" parent="YellowNear"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="BlueNear" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 0.75 )
+motion_mirroring = Vector2( 1920, 1080 )
+
+[node name="Sprite" type="Sprite" parent="BlueNear"]
+texture = ExtResource( 4 )
+centered = false
