@@ -1,0 +1,142 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/background.png" type="Texture" id=1]
+[ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Platforms/SolidBlue.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Actors/PlayerBlue.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Actors/PlayerYellow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Objects/Portal2D.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Platforms/SolidYellow.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Objects/Text2D.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Levels/Level04.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Actors/PlayerController.tscn" type="PackedScene" id=10]
+
+[node name="Level01" type="Node2D"]
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+
+[node name="UserInterface" parent="InterfaceLayer" instance=ExtResource( 2 )]
+
+[node name="PlayerController" parent="InterfaceLayer" instance=ExtResource( 10 )]
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="SolidYellow" parent="Platforms" instance=ExtResource( 7 )]
+position = Vector2( 100, -500 )
+
+[node name="SolidYellow2" parent="Platforms" instance=ExtResource( 7 )]
+position = Vector2( 100, -700 )
+
+[node name="SolidBlue" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 100, -100 )
+
+[node name="SolidBlue2" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 300, -100 )
+
+[node name="SolidBlue3" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 100, -300 )
+
+[node name="SolidBlue4" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 500, -100 )
+
+[node name="SolidBlue5" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 700, -100 )
+
+[node name="SolidBlue6" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 900, -100 )
+
+[node name="SolidBlue7" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 1100, -100 )
+
+[node name="SolidBlue8" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 1300, -100 )
+
+[node name="SolidYellow3" parent="Platforms" instance=ExtResource( 7 )]
+position = Vector2( 300, -500 )
+
+[node name="SolidYellow4" parent="Platforms" instance=ExtResource( 7 )]
+position = Vector2( 500, -500 )
+
+[node name="SolidYellow5" parent="Platforms" instance=ExtResource( 7 )]
+position = Vector2( 700, -500 )
+
+[node name="SolidYellow6" parent="Platforms" instance=ExtResource( 7 )]
+position = Vector2( 900, -500 )
+
+[node name="SolidYellow7" parent="Platforms" instance=ExtResource( 7 )]
+position = Vector2( 1100, -500 )
+
+[node name="SolidYellow8" parent="Platforms" instance=ExtResource( 7 )]
+position = Vector2( 1300, -500 )
+
+[node name="SolidBlue10" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 2100, -100 )
+
+[node name="SolidBlue11" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 2100, -300 )
+
+[node name="SolidYellow9" parent="Platforms" instance=ExtResource( 7 )]
+position = Vector2( 1500, -500 )
+
+[node name="SolidYellow10" parent="Platforms" instance=ExtResource( 7 )]
+position = Vector2( 1700, -500 )
+
+[node name="SolidYellow11" parent="Platforms" instance=ExtResource( 7 )]
+position = Vector2( 1900, -500 )
+
+[node name="SolidYellow12" parent="Platforms" instance=ExtResource( 7 )]
+position = Vector2( 1900, -700 )
+
+[node name="SolidBlue12" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 2100, -500 )
+
+[node name="SolidBlue9" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 1900, -100 )
+
+[node name="SolidBlue13" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 1500, -100 )
+
+[node name="SolidBlue14" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 1500, -300 )
+
+[node name="SolidBlue15" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 1700, -100 )
+
+[node name="Portal2D" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 1900, -200 )
+next_scene = ExtResource( 9 )
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="PlayerYellow" parent="Players" instance=ExtResource( 5 )]
+position = Vector2( 300, -600 )
+radius = 600.0
+player_controller_path = NodePath("../../InterfaceLayer/PlayerController")
+
+[node name="PlayerBlue" parent="Players" instance=ExtResource( 4 )]
+position = Vector2( 1100, -200 )
+radius = 0.0
+player_controller_path = NodePath("../../InterfaceLayer/PlayerController")
+
+[node name="Hints" type="Node2D" parent="."]
+
+[node name="Connection" parent="Hints" instance=ExtResource( 8 )]
+position = Vector2( 400, -300 )
+text = "We can share abilities when close to eachother"

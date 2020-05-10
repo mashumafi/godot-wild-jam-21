@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/background.png" type="Texture" id=1]
+[ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Platforms/SolidBlue.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Actors/PlayerBlue.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Platforms/OneWayBlue.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Objects/UnlockMovement.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Platforms/SolidYellow.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Objects/Text2D.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Objects/Portal2D.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Actors/PlayerController.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Levels/Level03.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Platforms/MovingBlue.tscn" type="PackedScene" id=12]
+
+[node name="Level01" type="Node2D"]
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+
+[node name="UserInterface" parent="InterfaceLayer" instance=ExtResource( 2 )]
+
+[node name="PlayerController" parent="InterfaceLayer" instance=ExtResource( 10 )]
+type = 0
+
+[node name="Portal2D" parent="." instance=ExtResource( 9 )]
+position = Vector2( 400, -200 )
+next_scene = ExtResource( 11 )
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="SolidBlue" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 200, -100 )
+
+[node name="OneWayBlue" parent="Platforms" instance=ExtResource( 5 )]
+position = Vector2( 200, -600 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="OneWayBlue3" parent="Platforms" instance=ExtResource( 5 )]
+position = Vector2( 200, -400 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="OneWayBlue4" parent="Platforms" instance=ExtResource( 5 )]
+position = Vector2( 200, -800 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="OneWayBlue5" parent="Platforms" instance=ExtResource( 5 )]
+position = Vector2( 300, -800 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="OneWayBlue6" parent="Platforms" instance=ExtResource( 5 )]
+position = Vector2( 400, -800 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="OneWayBlue2" parent="Platforms" instance=ExtResource( 5 )]
+position = Vector2( 300, -600 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="SolidBlue2" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 400, -100 )
+
+[node name="SolidYellow" parent="Platforms" instance=ExtResource( 7 )]
+position = Vector2( 400, -600 )
+scale = Vector2( 0.5, 1 )
+
+[node name="MovingBlue" parent="Platforms" instance=ExtResource( 12 )]
+position = Vector2( 200, -1000 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="PlayerBlue" parent="Players" instance=ExtResource( 4 )]
+position = Vector2( 200, -200 )
+radius = 0.0
+player_controller_path = NodePath("../../InterfaceLayer/PlayerController")
+
+[node name="Hints" type="Node2D" parent="."]
+
+[node name="XToMove" parent="Hints" instance=ExtResource( 8 )]
+position = Vector2( 100, -100 )
+text = "Use X to jump"
+
+[node name="FallThrough" parent="Hints" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 500, -600 )
+text = "Only same color block can hold you up."
+
+[node name="Drop" parent="Hints" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 300, -1200 )
+text = "You can press Z to change to falling through platforms because you are alone"
+
+[node name="UnlockMovement" parent="Hints" instance=ExtResource( 6 )]
+position = Vector2( 200, -1200 )
+player_controller_path = NodePath("../../InterfaceLayer/PlayerController")
+text_path = NodePath("../Drop")
+
+[node name="UnlockMovement2" parent="Hints" instance=ExtResource( 6 )]
+position = Vector2( 400, -900 )
+text_path = NodePath("../FallThrough")
