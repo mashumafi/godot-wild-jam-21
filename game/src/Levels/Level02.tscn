@@ -88,7 +88,7 @@ player_controller_path = NodePath("../../InterfaceLayer/PlayerController")
 
 [node name="XToMove" parent="Hints" instance=ExtResource( 8 )]
 position = Vector2( 100, -100 )
-text = "Use X to jump"
+text = "Meet left brain, use X to jump"
 
 [node name="FallThrough" parent="Hints" instance=ExtResource( 8 )]
 visible = false

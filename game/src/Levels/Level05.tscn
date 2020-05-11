@@ -150,4 +150,4 @@ player_controller_path = NodePath("../../InterfaceLayer/PlayerController")
 
 [node name="Text2D" parent="Hints" instance=ExtResource( 8 )]
 position = Vector2( 200, -400 )
-text = "Yellow can jump when close to blue"
+text = "Both combined can make movement tricky"

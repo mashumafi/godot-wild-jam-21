@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/UserInterface/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://src/Platforms/SolidBlue.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/Platforms/OneWayBlue.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/Platforms/MovingBlue.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/Objects/Text2D.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "move_enemy"
@@ -196,3 +197,15 @@ player_controller_path = NodePath("../../InterfaceLayer/PlayerController")
 player_controller_path = NodePath("../../InterfaceLayer/PlayerController")
 
 [node name="Hints" type="Node2D" parent="."]
+
+[node name="Text2D" parent="Hints" instance=ExtResource( 14 )]
+position = Vector2( 550, -100 )
+text = "Use Z to cycle brains and their actions."
+
+[node name="Text2D2" parent="Hints" instance=ExtResource( 14 )]
+position = Vector2( 200, -1000 )
+text = "Use X to perform the current brain's action."
+
+[node name="Text2D3" parent="Hints" instance=ExtResource( 14 )]
+position = Vector2( 650, -500 )
+text = "Avoid touching stress balls"

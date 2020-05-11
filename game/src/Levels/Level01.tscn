@@ -130,15 +130,16 @@ player_controller_path = NodePath("../../InterfaceLayer/PlayerController")
 
 [node name="XToMove" parent="Hints" instance=ExtResource( 8 )]
 position = Vector2( 600, -1400 )
-text = "Use X to move"
+text = "This is right brain, use X to move right"
 
 [node name="FallThrough" parent="Hints" instance=ExtResource( 8 )]
 position = Vector2( 2200, -1400 )
-text = "Only same color block can hold you up."
+text = "Only same color blocks can hold you up."
 
 [node name="MoveLeft" parent="Hints" instance=ExtResource( 8 )]
+visible = false
 position = Vector2( 2600, -600 )
-text = "You can press Z to change directions because you are alone"
+text = "You can press Z to change directions because you are alone."
 
 [node name="UnlockMovement" parent="Hints" instance=ExtResource( 9 )]
 position = Vector2( 3400, -600 )

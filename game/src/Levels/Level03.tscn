@@ -137,4 +137,4 @@ player_controller_path = NodePath("../../InterfaceLayer/PlayerController")
 
 [node name="Connection" parent="Hints" instance=ExtResource( 8 )]
 position = Vector2( 400, -300 )
-text = "We can share abilities when close to eachother"
+text = "Brains can share abilities when close to eachother"
